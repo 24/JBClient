@@ -7,8 +7,8 @@ import json
 import time
 
 
-
-def buildParam(key, value):
+# 封装请求的参数
+def buildParam(req):
     param = {
         'amount': 1,
         'price' : 10000,
@@ -17,10 +17,15 @@ def buildParam(key, value):
         'key'   : '5zi7w-4mnes-swmc4-egg9b-f2iqw-396z4-g541b',
         'signature': '459c69d25c496765191582d9611028b9974830e9dfafd762854669809290ed82'
     }
+    build = {'param': urllib.parse.urlencode(param)}
 
-    build = urllib.parse.urlencode(param)+"&"+key+"="+value
+    for key in req:
+        build[key] = req[key]
+    build = urllib.parse.urlencode(build)
     return build
 
+
+# http get请求
 def httpGet(url,resource,params=''):
     conn = http.client.HTTPSConnection(url, timeout=10)
     conn.request("GET",resource + '?' + params)
@@ -28,6 +33,8 @@ def httpGet(url,resource,params=''):
     data = response.read().decode('utf-8')
     return json.loads(data)
 
+
+# http post请求
 def httpPost(url,resource,params):
      headers = {
             "Content-type" : "application/x-www-form-urlencoded",
