@@ -26,7 +26,7 @@ def buildParam(req):
 
 
 # http get请求
-def httpGet(url,resource,params=''):
+def httpGet(url, resource, params=''):
     conn = http.client.HTTPSConnection(url, timeout=10)
     conn.request("GET",resource + '?' + params)
     response = conn.getresponse()
@@ -35,9 +35,9 @@ def httpGet(url,resource,params=''):
 
 
 # http post请求
-def httpPost(url,resource,params):
+def httpPost(url, resource, params):
      headers = {
-            "Content-type" : "application/x-www-form-urlencoded",
+            "Content-type": "application/x-www-form-urlencoded",
      }
      conn = http.client.HTTPSConnection(url, timeout=10)
      temp_params = urllib.parse.urlencode(params)

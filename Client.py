@@ -8,3 +8,8 @@ JubiURL = "www.jubi.com"
 jubiSpot = JuBiSpot(JubiURL)
 
 print(jubiSpot.ticker("btc"))
+
+print(jubiSpot.depth("btc"))
+
+print(jubiSpot.orders("btc"))
+
