@@ -3,7 +3,7 @@
 
 import time
 import urllib
-from HttpUtil import httpGet
+from HttpUtil import httpJsonGet
 
 
 class JuBiSpot:
@@ -32,18 +32,18 @@ class JuBiSpot:
     def ticker(self, param):
         ticker_api = "/api/v1/ticker/"
         request = {"coin": param}
-        return httpGet(self.__url, ticker_api, self.buildParam(request))
+        return httpJsonGet(self.__url, ticker_api, self.buildParam(request))
 
 
 # 市场深度
     def depth(self, param):
         ticker_api = "/api/v1/depth/"
         request = {"coin": param}
-        return httpGet(self.__url, ticker_api, self.buildParam(request))
+        return httpJsonGet(self.__url, ticker_api, self.buildParam(request))
 
 
 # 市场交易
     def orders(self, param):
         ticker_api = "/api/v1/orders/"
         request = {"coin": param}
-        return httpGet(self.__url, ticker_api, self.buildParam(request))
+        return httpJsonGet(self.__url, ticker_api, self.buildParam(request))

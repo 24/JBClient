@@ -17,4 +17,6 @@ print(jubiSpot.orders("btc"))
 # 微信相关api调用
 wxBot = WxBot()
 wxBot.uuidGet()
+wxBot.qrcodeGet()
+wxBot.qrcodeScan()
 
