@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # coding = utf-8
 
-from JubiAPI import JuBiSpot
-from WxApi import WxBot
+from jb.JubiAPI import JuBiSpot
+from wx.WxApi import WxBot
 
 JubiURL = "www.jubi.com"
 

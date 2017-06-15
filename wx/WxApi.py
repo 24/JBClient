@@ -1,11 +1,12 @@
 #!/usr/bin/python
 # coding = utf-8
-import time
-import random
 import re
+import time
+
 import qrcode
 
-from HttpUtil import httpPost, httpGet
+from util.HttpUtil import httpGet
+
 
 class WxBot:
     def __init__(self):

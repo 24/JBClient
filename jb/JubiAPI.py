@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # coding = utf-8
 
-import time
 import urllib
-from HttpUtil import httpJsonGet
+
+from util.HttpUtil import httpJsonGet
 
 
 class JuBiSpot:
