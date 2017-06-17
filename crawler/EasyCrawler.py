@@ -4,8 +4,9 @@
 import re
 import requests
 from bs4 import BeautifulSoup
+from wx.wxApi import WebWeixin
 
-class SimpleCrawler:
+class SCrawler:
 
 
     # 解析聚币 btc新闻
@@ -24,17 +25,21 @@ class SimpleCrawler:
             soup = BeautifulSoup(req.text, 'html.parser')
 
             list = soup.find_all('li')# todo 优化搜索结构，去掉最后的不合法<li>
-            for i in range(len(list)):
-                li = list[i]
+            for li in list:
                 if (li.a is not None) and (li.p is not None):
                     title = li.a.string
-                    uri = li.a['href']
+                    uri = "https://www.jubi.com"+li.a['href']
                     date = li.span.string
 
                     jbobj = NewsBean(title, uri, date)
                     jblist.append(jbobj)
         except Exception as e:
             print(e)
+
+        # 微信相关api调用
+        webwx = WebWeixin()
+        webwx.setNewsList(jblist)
+        webwx.start()
         return jblist
 
 
